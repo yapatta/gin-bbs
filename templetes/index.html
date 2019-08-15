@@ -1,0 +1,20 @@
+<body>
+<h2>やぱった掲示板(GoLang練習)</h2>
+<form method="post" action="/new">
+    <p>名前<input type="text" name="name" size="30" placeholder="名前を入力してください" ></p>
+    <p>コメント<input type="text" name="comment" size="30" placeholder="コメントを入力してください" ></p>
+    <p><input type="submit" value="Send"></p>
+</form>
+
+<ul>
+    {{ range .tweets }}
+        <li>
+			<p>名前：{{ .Name }}, コメント：{{ .Comment }}</p>
+			<p>
+            	<label><a href="/detail/{{.ID}}">編集</a></label>
+            	<label><a href="/delete_check/{{.ID}}">削除</a></label>
+			</p>
+        </li>
+    {{end}}
+</ul>
+</body>
